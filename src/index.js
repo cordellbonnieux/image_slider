@@ -1,8 +1,6 @@
 import {addImages} from './populate'
 
 const sliderWrapper = document.getElementById('sliderWrapper')
-    // for testing
-    sliderWrapper.style.cssText = 'display:flex; flex-wrap: wrap;'
 const images = [
     {
         img : 'img/image1.jpg'
