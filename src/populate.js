@@ -22,8 +22,10 @@ function addNavigation(slide, i, images){
             previous.setAttribute('class', 'previous')
             previous.addEventListener('click', function(){
                 const previousSlide = document.getElementById(`slide${i}`)
-                previousSlide.style.display = 'block'
-                slide.style.display = 'none'           
+                //
+                slide.style.opacity = '0'
+                setTimeout(function(){fadeTimer(slide, previousSlide)}, 3000)
+                //  
             })
         const previousWrapper = document.createElement('div')
             previousWrapper.setAttribute('class', 'previousWrapper')
@@ -37,12 +39,18 @@ function addNavigation(slide, i, images){
             next.addEventListener('click', function(){
                 const nextNumber = i + 2
                 const nextSlide = document.getElementById(`slide${nextNumber}`)
-                nextSlide.style.display = 'block'
-                slide.style.display = 'none'           
+                //
+                slide.style.opacity = '0'
+                setTimeout(function(){fadeTimer(slide, nextSlide)}, 2000)
+                //     
             })
         const nextWrapper = document.createElement('div')
             nextWrapper.setAttribute('class', 'nextWrapper')
             nextWrapper.appendChild(next)
             slide.appendChild(nextWrapper)
     }
+}
+function fadeTimer(slide, otherSlide){
+    slide.style.display = 'none'
+    otherSlide.style.cssText = 'opacity:1; display:block;'
 }
