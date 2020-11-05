@@ -10,26 +10,34 @@ export function addImages(sliderWrapper, images){
             slideImg.style.cssText = 'width:300px;' 
         slide.appendChild(slideImg)
         sliderWrapper.appendChild(slide)
-        addNavigation(slide) 
+        addNavigation(slide, i, images) 
         if ([i] != 0){
             slide.style.display = 'none'
         }
     }
 }
-function addNavigation(slide){
-    const previous = document.createElement('span')
-        previous.textContent = 'Previous'
-        previous.addEventListener('click', function(){
-            slide.style.display = 'none'
-            //previousSlide.style.display = 'block'
-        })
-        slide.appendChild(previous)
-
-    const next = document.createElement('span')
-        next.textContent = 'Next'
-        next.addEventListener('click', function(){
-            slide.style.display = 'none'
-            //nextSlide.style.display = 'block'
-        })
-        slide.appendChild(next)
+function addNavigation(slide, i, images){
+    if (i > 0){
+        const previous = document.createElement('span')
+            previous.textContent = 'Previous'
+            previous.setAttribute('class', 'previous')
+            previous.addEventListener('click', function(){
+                const previousSlide = document.getElementById(`slide${i}`)
+                previousSlide.style.display = 'block'
+                slide.style.display = 'none'            
+            })
+            slide.appendChild(previous)
+    }
+    if (i < (images.length - 1)){
+        const next = document.createElement('span')
+            next.textContent = 'Next'
+            next.setAttribute('class', 'next')
+            next.addEventListener('click', function(){
+                const nextNumber = i + 2
+                const nextSlide = document.getElementById(`slide${nextNumber}`)
+                nextSlide.style.display = 'block'
+                slide.style.display = 'none'            
+            })
+            slide.appendChild(next)
+    }
 }
