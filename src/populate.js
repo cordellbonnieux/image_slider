@@ -9,7 +9,8 @@ export function addImages(sliderWrapper, images){
             slideImg.style.cssText = 'width:100%;' 
         slide.appendChild(slideImg)
         sliderWrapper.appendChild(slide)
-        addNavigation(slide, i, images) 
+        addNavigation(slide, i, images)
+        addCompass(slide, i, images) 
         if ([i] != 0){
             slide.style.display = 'none'
         }
@@ -53,4 +54,15 @@ function addNavigation(slide, i, images){
 function fadeTimer(slide, otherSlide){
     slide.style.display = 'none'
     otherSlide.style.cssText = 'opacity:1; display:block;'
+}
+function addCompass(slide, i, images){
+    const currentNumber = i + 1
+    const totalNumber = images.length
+    const compassWrapper = document.createElement('div')
+        compassWrapper.setAttribute('class', 'compassWrapper')
+        slide.appendChild(compassWrapper)
+    const compass = document.createElement('span')
+        compass.setAttribute('class', 'compass')
+        compass.textContent = `${currentNumber}/${totalNumber}`
+        compassWrapper.appendChild(compass)
 }

@@ -33,3 +33,11 @@ body {
 .previous:hover {
   text-decoration: underline;
 }
+.compassWrapper {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #fff;
+}
