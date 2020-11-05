@@ -1,0 +1,19 @@
+#sliderWrapper {
+  width: 100%;
+}
+.slide {
+  position: relative;
+}
+.previousWrapper {
+  left: 25px;
+}
+.nextWrapper {
+  right: 25px;
+}
+.nextWrapper,
+.previousWrapper {
+  position: absolute;
+  top: 45%;
+  background-color: #fff;
+  padding: 10px;
+}

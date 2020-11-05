@@ -17,3 +17,5 @@ const images = [
 ]
 
 addImages(sliderWrapper, images)
+
+import css from './style.css'

@@ -3,11 +3,10 @@ export function addImages(sliderWrapper, images){
         const slide = document.createElement('div')
             slide.setAttribute('class', 'slide')
             slide.setAttribute('id', `slide${i + 1}`)
-            slide.style.display = 'block'
         const slideImg = document.createElement('img')
             slideImg.src = images[i].img
             // added for testing
-            slideImg.style.cssText = 'width:300px;' 
+            slideImg.style.cssText = 'width:100%;' 
         slide.appendChild(slideImg)
         sliderWrapper.appendChild(slide)
         addNavigation(slide, i, images) 
@@ -24,9 +23,12 @@ function addNavigation(slide, i, images){
             previous.addEventListener('click', function(){
                 const previousSlide = document.getElementById(`slide${i}`)
                 previousSlide.style.display = 'block'
-                slide.style.display = 'none'            
+                slide.style.display = 'none'           
             })
-            slide.appendChild(previous)
+        const previousWrapper = document.createElement('div')
+            previousWrapper.setAttribute('class', 'previousWrapper')
+            previousWrapper.appendChild(previous)
+            slide.appendChild(previousWrapper)
     }
     if (i < (images.length - 1)){
         const next = document.createElement('span')
@@ -36,8 +38,11 @@ function addNavigation(slide, i, images){
                 const nextNumber = i + 2
                 const nextSlide = document.getElementById(`slide${nextNumber}`)
                 nextSlide.style.display = 'block'
-                slide.style.display = 'none'            
+                slide.style.display = 'none'           
             })
-            slide.appendChild(next)
+        const nextWrapper = document.createElement('div')
+            nextWrapper.setAttribute('class', 'nextWrapper')
+            nextWrapper.appendChild(next)
+            slide.appendChild(nextWrapper)
     }
 }
